@@ -20,6 +20,7 @@
     "eslint-plugin-vue": "^7.17.0",
     "eslint-webpack-plugin": "^3.0.1",
     "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
     "prettier": "2.4.1",
     "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0"
@@ -29,5 +30,9 @@
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "tool": "git+http://git.kingdee.com/wojiacloud_web/tool.git#v1.0.3"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
