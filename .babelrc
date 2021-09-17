@@ -1,0 +1,23 @@
+{
+  // presets: [
+  // 	[
+  // 		'@vue/app',
+  // 		{
+  // 			useBuiltIns: 'entry',
+  // 			corejs: 3,
+  // 		},
+  // 	],
+  // ],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "tool",
+        "style": false,
+        "libraryDirectory": "lib",
+        "camel2DashComponentName": false
+      }
+    ]
+  ]
+  // sourceType: 'unambiguous',
+}
