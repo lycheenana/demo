@@ -1,7 +1,14 @@
 const ESLintPlugin = require("eslint-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: "./src/main.js",
+  output: {
+    path: __dirname + '/dist/',
+    // publicPath: '/static/',
+    filename: 'static/[name].[hash].js',   //  出口文件放在子目录static下
+  },
   mode: "production",
   module: {
     rules: [
@@ -13,6 +20,9 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
+        generator: {
+          filename: 'static/[hash][ext]'
+        }
       },
     ],
   },
@@ -20,8 +30,15 @@ module.exports = {
     new ESLintPlugin({
       fix: true,
     }),
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
   ],
   optimization: {
     usedExports: false,
   },
+  devServer: {
+    static: './dist'
+  }
 };
